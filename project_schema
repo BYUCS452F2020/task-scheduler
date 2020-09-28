@@ -1,0 +1,26 @@
+# Nathaniel Mitchell – Event-Scheduler
+User(username, firstname, lastname, email)
+Authentication(userID, username, password hash, salt, username)
+Foreign Key: username references User
+Event(eventID, username, title, location, time, date, repeat, bold, description)
+Foreign Key: username references User
+Calendar(dateID, calendarDate, monthNo, dayOfWeek)
+Table Descriptions
+The user table will be used when a user creates an account, they provide this information which gets
+stored in the database.
+The authentication table is used to store user credentials, it contains a userID as the primary key and can
+be linked to the user information through the username foreign key.
+The event table will be used to store events that are stored in the users calendar and is connected to its
+corresponding user the username foreign key.
+The calendar table will be used to store calendar dates, this will be pulled to create the calendar
+interface by knowing what day of the week the month starts on and showing how many days the month
+will have along with getting a date format to store in the eventid
+Columns
+Most of the column names are intuitive, except the bold column in the event table. This will be a
+Boolean that users can set to have their event considered important, making it highlighted on their
+calendar.
+The eventID, userID, and dateID are internal object identifiers and will not be visible to the user. The
+dateID will be a number incrementing from the start of the application.
+Normalization
+The database is in first normal form because it is separated into tables containing related data and each
+table has a related primary key.
